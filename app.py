@@ -1,5 +1,12 @@
 import requests
 from flask import Flask, render_template, jsonify
+
+import mimetypes
+
+# Força o reconhecimento correto dos arquivos estáticos
+mimetypes.add_type('application/javascript', '.js')
+mimetypes.add_type('text/css', '.css')
+
 from psycopg2.extras import RealDictCursor
 
 from database import get_connection
